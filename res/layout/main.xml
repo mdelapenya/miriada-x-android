@@ -8,6 +8,7 @@
     tools:context=".Asteroides" >
 
     <TextView
+        style="@style/TextoAsteroides"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dip"
@@ -17,24 +18,28 @@
 
     <Button
         android:id="@+id/Button01"
+        style="@style/TextoAsteroides.Botones"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/Arrancar" />
 
     <Button
         android:id="@+id/Button02"
+        style="@style/TextoAsteroides.Botones"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/Configurar" />
 
     <Button
         android:id="@+id/Button03"
+        style="@style/TextoAsteroides.Botones"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/Acercade" />
 
     <Button
         android:id="@+id/Button04"
+        style="@style/TextoAsteroides.Botones"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/Salir" />
