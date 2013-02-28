@@ -7,5 +7,6 @@
     <string name="tituloAplicacion">Asteroids</string>
     <string name="hello">Hello World, Asteroids! </string>
     <string name="app_name">Asteroids</string>
+    <string name="menu_settings">Menu Settings</string>
 
 </resources>
