@@ -1,17 +1,36 @@
 package org.example.asteroides;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class Asteroides extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.main);
+
+		bAcercaDe = (Button) findViewById(R.id.Button03);
+
+		bAcercaDe.setOnClickListener(new OnClickListener() {
+			public void onClick(View view) {
+				lanzarAcercaDe(null);
+			}
+		});
+
+		bFinish = (Button) findViewById(R.id.Button04);
+
+		bFinish.setOnClickListener(new OnClickListener() {
+			public void onClick(View view) {
+				finish();
+			}
+		});
 	}
 
 	@Override
@@ -26,5 +45,8 @@ public class Asteroides extends Activity {
 
 		startActivity(i);
 	}
+
+	private Button bAcercaDe;
+	private Button bFinish;
 
 }
