@@ -19,6 +19,8 @@ public final class R {
         public static final int Button03=0x7f070003;
         public static final int Button04=0x7f070004;
         public static final int TextView01=0x7f070000;
+        public static final int acercaDe=0x7f070007;
+        public static final int config=0x7f070006;
         public static final int menu_settings=0x7f070005;
     }
     public static final class layout {
@@ -27,6 +29,7 @@ public final class R {
     }
     public static final class menu {
         public static final int main=0x7f060000;
+        public static final int menu=0x7f060001;
     }
     public static final class string {
         public static final int Acercade=0x7f040002;
