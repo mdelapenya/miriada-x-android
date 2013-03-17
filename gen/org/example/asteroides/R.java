@@ -40,6 +40,7 @@ public final class R {
         public static final int Acercade=0x7f060002;
         public static final int Arrancar=0x7f060000;
         public static final int Configurar=0x7f060001;
+        public static final int Puntuaciones=0x7f060008;
         public static final int Salir=0x7f060003;
         public static final int app_name=0x7f060006;
         public static final int hello=0x7f060005;

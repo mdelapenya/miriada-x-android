@@ -42,6 +42,6 @@
         style="@style/TextoAsteroides.Botones"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Salir" />
+        android:text="@string/Puntuaciones" />
 
 </LinearLayout>

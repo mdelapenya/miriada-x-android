@@ -8,5 +8,6 @@
     <string name="hello">Hello World, Asteroides! </string>
     <string name="app_name">Asteroides</string>
     <string name="menu_settings">Menu Settings</string>
+    <string name="Puntuaciones">Puntuaciones</string>
 
 </resources>
