@@ -51,6 +51,9 @@ public class Asteroides extends Activity {
 			case R.id.acercaDe:
 				lanzarAcercaDe(null);
 				break;
+			case R.id.config:
+				lanzarPreferencias(null);
+				break;
 		}
 
 		// true -> consumimos el item, no se propaga
@@ -60,6 +63,12 @@ public class Asteroides extends Activity {
 
 	public void lanzarAcercaDe(View view) {
 		Intent i = new Intent(this, AcercaDe.class);
+
+		startActivity(i);
+	}
+
+	public void lanzarPreferencias(View view) {
+		Intent i = new Intent(this, Preferencias.class);
 
 		startActivity(i);
 	}
