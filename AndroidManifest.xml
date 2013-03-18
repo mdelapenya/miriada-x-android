@@ -39,7 +39,7 @@
         </activity>
         <activity
             android:name="org.example.asteroides.Juego"
-            android:label="@string/title_activity_juego" >
+            android:label="@string/juego" >
         </activity>
     </application>
 

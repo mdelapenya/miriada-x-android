@@ -22,7 +22,8 @@
         style="@style/TextoAsteroides.Botones"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Arrancar" />
+        android:text="@string/Arrancar" 
+        android:onClick="lanzarJuego"/>
 
     <Button
         android:id="@+id/Button02"
