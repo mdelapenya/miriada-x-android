@@ -22,9 +22,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="AcercaDe" android:label="Acerca de" android:theme="@android:style/Theme.Dialog"></activity>
-        <activity android:name="Preferencias" android:label="Preferencias" android:theme="@android:style/Theme.Dialog"></activity>
-        <activity android:name="Puntuaciones" android:label="Puntuaciones" android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name="org.example.asteroides.AcercaDe"
+            android:label="Acerca de"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="org.example.asteroides.Preferencias"
+            android:label="Preferencias"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="org.example.asteroides.Puntuaciones"
+            android:label="Puntuaciones"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name="org.example.asteroides.Juego"
+            android:label="@string/title_activity_juego" >
+        </activity>
     </application>
 
 </manifest>

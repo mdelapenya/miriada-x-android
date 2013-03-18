@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="Arrancar">Jugar</string>
@@ -12,5 +13,6 @@
     <string name="no_hay_puntuaciones">No hay puntuaciones</string>
     <string name="otro_texto">Otro Texto</string>
     <string name="image_content_description">Descripción del contenido</string>
+    <string name="juego">Juego</string>
 
 </resources>
