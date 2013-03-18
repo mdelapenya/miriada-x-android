@@ -9,5 +9,8 @@
     <string name="app_name">Asteroides</string>
     <string name="menu_settings">Menu Settings</string>
     <string name="Puntuaciones">Puntuaciones</string>
+    <string name="no_hay_puntuaciones">No hay puntuaciones</string>
+    <string name="otro_texto">Otro Texto</string>
+    <string name="image_content_description">Descripción del contenido</string>
 
 </resources>
