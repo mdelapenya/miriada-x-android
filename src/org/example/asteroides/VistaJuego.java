@@ -16,10 +16,23 @@ public class VistaJuego extends View {
 	private int numAsteroides = 5; // Número inicial de asteroides
 	private int numFragmentos = 3; // Fragmentos en que se divide
 
+	// NAVE //
+	private Grafico nave;// Gráfico de la nave
+	private int giroNave; // Incremento de dirección
+	private float aceleracionNave; // aumento de velocidad
+
+	// Incremento estándar de giro y aceleración
+
+	private static final int PASO_GIRO_NAVE = 5;
+	private static final float PASO_ACELERACION_NAVE = 0.5f;
+
 	public VistaJuego(Context context, AttributeSet attrs) {
 		super(context, attrs);
 
 		Drawable drawableNave, drawableAsteroide, drawableMisil;
+
+		drawableNave =
+			context.getResources().getDrawable(R.drawable.nave);
 
 		drawableAsteroide =
 			context.getResources().getDrawable(R.drawable.asteroide1);
@@ -36,6 +49,8 @@ public class VistaJuego extends View {
 
 			_asteroides.add(asteroide);
 		}
+
+		nave = new Grafico(this, drawableNave);
 	}
 
 	@Override
@@ -47,9 +62,18 @@ public class VistaJuego extends View {
 		// Una vez que conocemos nuestro ancho y alto.
 
 		for (Grafico asteroide : _asteroides) {
-			asteroide.setPosX(Math.random() * (ancho - asteroide.getAncho()));
-			asteroide.setPosY(Math.random() * (alto - asteroide.getAlto()));
+			do{
+				asteroide.setPosX(Math.random()*(ancho-asteroide.getAncho()));
+				asteroide.setPosY(Math.random()*(alto-asteroide.getAlto()));
+			}
+			while(asteroide.distancia(nave) < (ancho+alto)/5);
 		}
+
+		int x_centro = (super.getWidth() - nave.getAncho()) / 2;
+		int y_centro = (super.getHeight() - nave.getAlto()) / 2;
+
+		nave.setPosX(x_centro);
+		nave.setPosY(y_centro);
 	}
 
 	@Override
@@ -59,6 +83,8 @@ public class VistaJuego extends View {
 		for (Grafico asteroide : _asteroides) {
 			asteroide.dibujaGrafico(canvas);
 		}
+
+		nave.dibujaGrafico(canvas);
 	}
 
 }
