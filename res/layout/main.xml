@@ -5,6 +5,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="30dip"
+    android:background="@drawable/degradado"
     tools:context=".Asteroides" >
 
     <TextView
