@@ -64,7 +64,7 @@ public class VistaJuego extends View {
 		nave = new Grafico(this, drawableNave);
 	}
 
-	protected void actualizaFisica() {
+	protected synchronized void actualizaFisica() {
 		long ahora = System.currentTimeMillis();
 
 		// No hagas nada si el período de proceso no se ha cumplido.
@@ -130,7 +130,7 @@ public class VistaJuego extends View {
 	}
 
 	@Override
-	protected void onDraw(Canvas canvas) {
+	protected synchronized void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 
 		for (Grafico asteroide : _asteroides) {
