@@ -5,6 +5,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="30dip"
+    android:background="@drawable/degradado"
     tools:context="Asteroides" >
 
     <TextView
@@ -29,6 +30,7 @@
                 style="@style/TextoAsteroides.Botones"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:onClick="lanzarJuego"
                 android:text="@string/Arrancar" />
 
             <Button
@@ -36,6 +38,7 @@
                 style="@style/TextoAsteroides.Botones"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:onClick="lanzarPreferencias"
                 android:text="@string/Configurar" />
 
         </TableRow>
@@ -47,6 +50,7 @@
                 style="@style/TextoAsteroides.Botones"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:onClick="lanzarAcercaDe"
                 android:text="@string/Acercade" />
 
             <Button
@@ -54,6 +58,7 @@
                 style="@style/TextoAsteroides.Botones"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:onClick="lanzarPuntuaciones"
                 android:text="@string/Puntuaciones" />
 
         </TableRow>
