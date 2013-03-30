@@ -20,6 +20,14 @@ public class Asteroides extends Activity {
 
 		setContentView(R.layout.main);
 
+		bConfigure = (Button) findViewById(R.id.Button02);
+
+		bConfigure.setOnClickListener(new OnClickListener() {
+			public void onClick(View view) {
+				lanzarPreferencias(null);
+			}
+		});
+
 		bAcercaDe = (Button) findViewById(R.id.Button03);
 
 		bAcercaDe.setOnClickListener(new OnClickListener() {
@@ -88,6 +96,7 @@ public class Asteroides extends Activity {
 	}
 
 	private Button bAcercaDe;
+	private Button bConfigure;
 	private Button bFinish;
 
 }
