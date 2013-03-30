@@ -133,6 +133,9 @@ public class VistaJuego extends View {
 
 		nave.setPosX(x_centro);
 		nave.setPosY(y_centro);
+
+		ultimoProceso = System.currentTimeMillis();
+		thread.start();
 	}
 
 	@Override
@@ -186,9 +189,6 @@ public class VistaJuego extends View {
 		}
 
 		nave.dibujaGrafico(canvas);
-
-		ultimoProceso = System.currentTimeMillis();
-		thread.start();
 	}
 
 	private class ThreadJuego extends Thread {
