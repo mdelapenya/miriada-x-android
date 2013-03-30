@@ -159,7 +159,13 @@ public class VistaJuego extends View {
 					disparo = false;
 				}
 				else if (dx < 6 && dy > 6){
-					aceleracionNave = Math.round((mY - y) / 100);
+					if (mY > y) {
+						aceleracionNave = Math.round((mY - y) / 100);
+					}
+					else {
+						aceleracionNave = 0;
+					}
+
 					disparo = false;
 				}
 
