@@ -77,9 +77,9 @@ public class VistaJuego extends View implements SensorEventListener {
 			Sensor.TYPE_ACCELEROMETER);
 
 		if (!listSensors.isEmpty()) {
-			Sensor orientationSensor = listSensors.get(0);
+			Sensor accelerometerSensor = listSensors.get(0);
 			_sensorManager.registerListener(
-				this, orientationSensor, SensorManager.SENSOR_DELAY_GAME);
+				this, accelerometerSensor, SensorManager.SENSOR_DELAY_GAME);
 		}
 
 		Drawable drawableNave  = null;
