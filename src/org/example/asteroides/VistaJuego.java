@@ -39,8 +39,8 @@ public class VistaJuego extends View {
 	private long ultimoProceso = 0;
 
 	// Misil //
-	private float mX = 0;
-	private float mY = 0;
+	private float lastEventX = 0;
+	private float lastEventY = 0;
 	private boolean disparo = false;
 
 	public VistaJuego(Context context, AttributeSet attrs) {
@@ -142,25 +142,26 @@ public class VistaJuego extends View {
 	public boolean onTouchEvent (MotionEvent event) {
 		super.onTouchEvent(event);
 
-		float x = event.getX();
-		float y = event.getY();
+		float currentEventX = event.getX();
+		float currentEventY = event.getY();
 
 		switch (event.getAction()) {
 			case MotionEvent.ACTION_DOWN:
-				disparo=true;
+				disparo = true;
 
 				break;
 			case MotionEvent.ACTION_MOVE:
-				float dx = Math.abs(x - mX);
-				float dy = Math.abs(y - mY);
+				float desplazamientoX = Math.abs(currentEventX - lastEventX);
+				float desplazamientoY = Math.abs(currentEventY - lastEventY);
 
-				if (dy < 6 && dx > 6){
-					giroNave = Math.round((x - mX) / 2);
+				if (desplazamientoY < 6 && desplazamientoX > 6){
+					giroNave = Math.round((currentEventX - lastEventX) / 2);
 					disparo = false;
 				}
-				else if (dx < 6 && dy > 6){
-					if (mY > y) {
-						aceleracionNave = Math.round((mY - y) / 100);
+				else if (desplazamientoX < 6 && desplazamientoY > 6){
+					if (lastEventY > currentEventY) {
+						aceleracionNave =
+							Math.round((lastEventY - currentEventY) / 100);
 					}
 					else {
 						aceleracionNave = 0;
@@ -181,7 +182,8 @@ public class VistaJuego extends View {
 				break;
 		}
 
-		mX=x; mY=y;
+		lastEventX = currentEventX;
+		lastEventY = currentEventY;
 
 		return true;
 	}
