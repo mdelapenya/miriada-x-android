@@ -10,6 +10,8 @@ public class Juego extends BaseActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.juego);
+
+		_vistaJuego = (VistaJuego) findViewById(R.id.VistaJuego);
 	}
 
 	@Override
@@ -18,5 +20,28 @@ public class Juego extends BaseActivity {
 
 		return true;
 	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+
+		_vistaJuego.getThread().pausar();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		_vistaJuego.getThread().reanudar();
+	}
+
+	@Override
+	protected void onDestroy() {
+		_vistaJuego.getThread().detener();
+
+		super.onDestroy();
+	}
+
+	protected VistaJuego _vistaJuego;
 
 }

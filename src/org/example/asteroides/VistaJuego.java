@@ -133,6 +133,10 @@ public class VistaJuego extends View implements SensorEventListener {
 		misil = new Grafico(this, drawableMisil);
 	}
 
+	public ThreadJuego getThread() {
+		return thread;
+	}
+
 	protected synchronized void actualizaFisica() {
 		long ahora = System.currentTimeMillis();
 
@@ -289,13 +293,47 @@ public class VistaJuego extends View implements SensorEventListener {
 		}
 	}
 
-	private class ThreadJuego extends Thread {
+	public class ThreadJuego extends Thread {
+
 		@Override
 		public void run() {
-			while (true) {
+			_corriendo = true;
+
+			while (_corriendo) {
 				actualizaFisica();
+
+				synchronized (this) {
+					while (_pausa) {
+						try {
+							wait();
+						} catch (Exception e) {
+						}
+					}
+				}
 			}
 		}
+
+		public synchronized void pausar() {
+			_pausa = true;
+		}
+
+		public synchronized void reanudar() {
+			_pausa = false;
+
+			notify();
+		}
+
+		public void detener() {
+			_corriendo = false;
+
+			if (_pausa) {
+				reanudar();
+			}
+		}
+
+		private boolean _pausa;
+		private boolean _corriendo;
+
 	}
 
 	private void _destruyeAsteroide(int i) {
