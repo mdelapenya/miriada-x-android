@@ -1,6 +1,7 @@
 package org.example.asteroides;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,6 +13,8 @@ import android.widget.Button;
 public class Asteroides extends BaseActivity {
 
 	public static AlmacenPuntuaciones almacen = new AlmacenPuntuacionesArray();
+
+	private MediaPlayer mp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,9 @@ public class Asteroides extends BaseActivity {
 				lanzarPuntuaciones(null);
 			}
 		});
+
+		mp = MediaPlayer.create(this, R.raw.mid);
+		mp.start();
 	}
 
 	@Override
