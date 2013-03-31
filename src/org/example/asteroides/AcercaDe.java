@@ -1,9 +1,8 @@
 package org.example.asteroides;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class AcercaDe extends Activity {
+public class AcercaDe extends BaseActivity {
 
 	/** Called when the activity is first created. */
 	@Override

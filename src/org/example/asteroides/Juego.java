@@ -1,10 +1,9 @@
 package org.example.asteroides;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 
-public class Juego extends Activity {
+public class Juego extends BaseActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
