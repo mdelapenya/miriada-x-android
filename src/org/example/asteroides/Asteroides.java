@@ -45,9 +45,6 @@ public class Asteroides extends BaseActivity {
 				lanzarPuntuaciones(null);
 			}
 		});
-
-		mp = MediaPlayer.create(this, R.raw.mid);
-		mp.start();
 	}
 
 	@Override
@@ -74,6 +71,53 @@ public class Asteroides extends BaseActivity {
 		// true -> consumimos el item, no se propaga
 
 		return true;
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+
+		mp.stop();
+		mp = null;
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+
+		mp.pause();
+	}
+
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+
+		mp.start();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		mp.start();
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+
+		if (mp == null) {
+			mp = MediaPlayer.create(this, R.raw.mid);
+		}
+
+		mp.start();
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+
+		mp.pause();
 	}
 
 	public void lanzarAcercaDe(View view) {
