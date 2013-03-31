@@ -56,8 +56,13 @@ public class BaseActivity extends Activity {
 	}
 
 	private void _showToast(String method) {
-		Toast.makeText(
-			this, method + " " + this.getTitle(), Toast.LENGTH_SHORT).show();
+		if (_logEnabled) {
+			Toast.makeText(
+				this,
+				method + " " + this.getTitle(), Toast.LENGTH_SHORT).show();
+		}
 	}
+
+	private boolean _logEnabled = false;
 
 }
