@@ -1,5 +1,7 @@
 package org.example.asteroides;
 
+import android.content.Context;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.Menu;
 
@@ -25,6 +27,8 @@ public class Juego extends BaseActivity {
 	protected void onPause() {
 		super.onPause();
 
+		_vistaJuego.pausarSensores();
+
 		_vistaJuego.getThread().pausar();
 	}
 
@@ -32,12 +36,16 @@ public class Juego extends BaseActivity {
 	protected void onResume() {
 		super.onResume();
 
+		_vistaJuego.reanudarSensores();
+
 		_vistaJuego.getThread().reanudar();
 	}
 
 	@Override
 	protected void onDestroy() {
 		_vistaJuego.getThread().detener();
+
+		_vistaJuego.pausarSensores();
 
 		super.onDestroy();
 	}

@@ -63,18 +63,22 @@ public class VistaJuego extends View implements SensorEventListener {
 
 	private int _graphicsType = 0;
 
+	// sensores //
+
+	SensorManager _sensorManager;
+
 	public VistaJuego(Context context, AttributeSet attrs) {
 		super(context, attrs);
 
-		SensorManager mSensorManager =
-			(SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+		_sensorManager = (SensorManager) context.getSystemService(
+			Context.SENSOR_SERVICE);
 
-		List<Sensor> listSensors = mSensorManager.getSensorList(
+		List<Sensor> listSensors = _sensorManager.getSensorList(
 			Sensor.TYPE_ACCELEROMETER);
 
 		if (!listSensors.isEmpty()) {
 			Sensor orientationSensor = listSensors.get(0);
-			mSensorManager.registerListener(
+			_sensorManager.registerListener(
 				this, orientationSensor, SensorManager.SENSOR_DELAY_GAME);
 		}
 
@@ -135,6 +139,24 @@ public class VistaJuego extends View implements SensorEventListener {
 
 	public ThreadJuego getThread() {
 		return thread;
+	}
+
+	public void pausarSensores() {
+		_sensorManager.unregisterListener(this);
+	}
+
+	public void reanudarSensores() {
+		List<Sensor> accelerometerSensors = _sensorManager.getSensorList(
+			Sensor.TYPE_ACCELEROMETER);
+
+		if (!accelerometerSensors.isEmpty()) {
+			for (Sensor sensor : accelerometerSensors) {
+				if (sensor != null) {
+					_sensorManager.registerListener(
+						this, sensor, SensorManager.SENSOR_DELAY_GAME);
+				}
+			}
+		}
 	}
 
 	protected synchronized void actualizaFisica() {
