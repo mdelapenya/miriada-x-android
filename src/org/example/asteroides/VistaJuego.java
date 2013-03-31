@@ -155,10 +155,16 @@ public class VistaJuego extends View {
 				float desplazamientoY = Math.abs(currentEventY - lastEventY);
 
 				if (desplazamientoY < 6 && desplazamientoX > 6){
+					// desplazamiento horizontal : x > y
+
 					giroNave = Math.round((currentEventX - lastEventX) / 2);
 					disparo = false;
 				}
 				else if (desplazamientoX < 6 && desplazamientoY > 6){
+					// desplazamiento vertical: y > x
+
+					// aceleramos si la Y actual es menor que la anterior
+
 					if (lastEventY > currentEventY) {
 						aceleracionNave =
 							Math.round((lastEventY - currentEventY) / 100);
