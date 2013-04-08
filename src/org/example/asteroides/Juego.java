@@ -1,7 +1,5 @@
 package org.example.asteroides;
 
-import android.content.Context;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.Menu;
 
