@@ -96,10 +96,32 @@ public class Asteroides extends BaseActivity {
 	}
 
 	@Override
+	protected void onRestoreInstanceState(Bundle bundle){
+		super.onRestoreInstanceState(bundle);
+
+		if (bundle != null && mp != null) {
+			int currentPosition = bundle.getInt("currentPosition");
+
+			mp.seekTo(currentPosition);
+		}
+	}
+
+	@Override
 	protected void onResume() {
 		super.onResume();
 
 		mp.start();
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle bundle){
+		super.onSaveInstanceState(bundle);
+
+		if (mp != null) {
+			int currentPosition = mp.getCurrentPosition();
+
+			bundle.putInt("currentPosition", currentPosition);
+		}
 	}
 
 	@Override
