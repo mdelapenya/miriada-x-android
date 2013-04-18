@@ -1,7 +1,6 @@
 package org.example.asteroides;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,8 +12,6 @@ import android.widget.Button;
 public class Asteroides extends BaseActivity {
 
 	public static AlmacenPuntuaciones almacen = new AlmacenPuntuacionesArray();
-
-	private MediaPlayer mp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +42,9 @@ public class Asteroides extends BaseActivity {
 				lanzarPuntuaciones(null);
 			}
 		});
+
+		startService(
+			new Intent(Asteroides.this, ServicioMusica.class));
 	}
 
 	@Override
@@ -77,69 +77,42 @@ public class Asteroides extends BaseActivity {
 	protected void onDestroy() {
 		super.onDestroy();
 
-		mp.stop();
-		mp = null;
+		stopService(new Intent(Asteroides.this, ServicioMusica.class));
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
-
-		mp.pause();
 	}
 
 	@Override
 	protected void onRestart() {
 		super.onRestart();
-
-		mp.start();
 	}
 
 	@Override
 	protected void onRestoreInstanceState(Bundle bundle){
 		super.onRestoreInstanceState(bundle);
-
-		if (bundle != null && mp != null) {
-			int currentPosition = bundle.getInt("currentPosition");
-
-			mp.seekTo(currentPosition);
-		}
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-
-		mp.start();
 	}
 
 	@Override
 	protected void onSaveInstanceState(Bundle bundle){
 		super.onSaveInstanceState(bundle);
-
-		if (mp != null) {
-			int currentPosition = mp.getCurrentPosition();
-
-			bundle.putInt("currentPosition", currentPosition);
-		}
 	}
 
 	@Override
 	protected void onStart() {
 		super.onStart();
-
-		if (mp == null) {
-			mp = MediaPlayer.create(this, R.raw.mid);
-		}
-
-		mp.start();
 	}
 
 	@Override
 	protected void onStop() {
 		super.onStop();
-
-		mp.pause();
 	}
 
 	public void lanzarAcercaDe(View view) {
