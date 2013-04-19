@@ -15,7 +15,7 @@ public class SMSReceiver extends BroadcastReceiver {
 			Bundle extras = intent.getExtras();
 
 			if (extras != null) {
-				Intent intencion = new Intent(context, AcercaDe.class);
+				Intent intencion = new Intent(context, Asteroides.class);
 
 				intencion.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
