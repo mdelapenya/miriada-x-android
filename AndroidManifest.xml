@@ -8,6 +8,8 @@
         android:minSdkVersion="7"
         android:targetSdkVersion="17" />
 
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -15,6 +17,7 @@
         android:theme="@style/AppTheme" >
 
         <service android:name=".ServicioMusica" />
+        <service android:name=".ServicioMusicaConSonidoRalentizado" />
 
         <activity
             android:name="org.example.asteroides.Asteroides"

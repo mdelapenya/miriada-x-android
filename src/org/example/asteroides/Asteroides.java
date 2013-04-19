@@ -1,6 +1,11 @@
 package org.example.asteroides;
 
+import android.annotation.SuppressLint;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.Notification.Builder;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -43,6 +48,16 @@ public class Asteroides extends BaseActivity {
 			}
 		});
 
+		bSocorro = (Button) findViewById(R.id.Button05);
+
+		nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+		bSocorro.setOnClickListener(new OnClickListener() {
+			public void onClick(View view) {
+				_buildNotification();
+			}
+		});
+
 		startService(
 			new Intent(Asteroides.this, ServicioMusica.class));
 	}
@@ -76,6 +91,8 @@ public class Asteroides extends BaseActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+
+		nm.cancel(ID_NOTIFICACION_CREAR);
 
 		stopService(new Intent(Asteroides.this, ServicioMusica.class));
 	}
@@ -139,8 +156,42 @@ public class Asteroides extends BaseActivity {
 		startActivity(i);
 	}
 
+	@SuppressLint("NewApi")
+	private void _buildNotification() {
+		Builder builder = new Builder(this);
+
+		builder.setSmallIcon(R.drawable.ic_launcher);
+		builder.setContentTitle("Socorro!!");
+		builder.setContentText("¿Necesitas ayuda?");
+
+		long when = System.currentTimeMillis() + (5 * 10000);
+
+		builder.setWhen(when);
+
+		builder.setVibrate(morseVibratePattern);
+
+		builder.setSound(
+			Uri.parse(
+				"android.resource://org.example.asteroides/" + R.raw.socorro));
+
+		PendingIntent intencionPendiente = PendingIntent.getActivity(
+			this, 0, new Intent(this, this.getClass()), 0);
+
+		builder.setContentIntent(intencionPendiente);
+
+		nm.notify(ID_NOTIFICACION_CREAR, builder.build());
+	}
+
 	private Button bAcercaDe;
 	private Button bConfigure;
 	private Button bFinish;
+	private Button bSocorro;
+
+	private static final long[] morseVibratePattern =
+		new long[] {0, 100, 30, 100, 30, 100, 30, 300, 30, 300, 30, 300,
+			30, 100, 30, 100, 30, 100};
+
+	private NotificationManager nm;
+	private static final int ID_NOTIFICACION_CREAR = 1;
 
 }

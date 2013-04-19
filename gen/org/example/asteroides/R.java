@@ -33,12 +33,13 @@ public final class R {
         public static final int Button02=0x7f0a0006;
         public static final int Button03=0x7f0a0007;
         public static final int Button04=0x7f0a0008;
+        public static final int Button05=0x7f0a0009;
         public static final int TextView01=0x7f0a0000;
         public static final int VistaJuego=0x7f0a0004;
-        public static final int acercaDe=0x7f0a000b;
-        public static final int config=0x7f0a000a;
+        public static final int acercaDe=0x7f0a000c;
+        public static final int config=0x7f0a000b;
         public static final int icono=0x7f0a0001;
-        public static final int menu_settings=0x7f0a0009;
+        public static final int menu_settings=0x7f0a000a;
         public static final int subtitulo=0x7f0a0003;
         public static final int titulo=0x7f0a0002;
     }
@@ -57,6 +58,7 @@ public final class R {
     public static final class raw {
         public static final int mid=0x7f050000;
         public static final int mp3=0x7f050001;
+        public static final int socorro=0x7f050002;
     }
     public static final class string {
         public static final int Acercade=0x7f070002;
@@ -64,6 +66,7 @@ public final class R {
         public static final int Configurar=0x7f070001;
         public static final int Puntuaciones=0x7f070008;
         public static final int Salir=0x7f070003;
+        public static final int Socorro=0x7f07000d;
         public static final int app_name=0x7f070006;
         public static final int hello=0x7f070005;
         public static final int image_content_description=0x7f07000b;

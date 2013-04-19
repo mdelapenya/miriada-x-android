@@ -2,10 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/degradado"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="30dip"
-    android:background="@drawable/degradado"
     tools:context="Asteroides" >
 
     <TextView
@@ -40,7 +40,6 @@
                 android:layout_height="wrap_content"
                 android:onClick="lanzarPreferencias"
                 android:text="@string/Configurar" />
-
         </TableRow>
 
         <TableRow>
@@ -60,7 +59,17 @@
                 android:layout_height="wrap_content"
                 android:onClick="lanzarPuntuaciones"
                 android:text="@string/Puntuaciones" />
+        </TableRow>
 
+        <TableRow android:layout_width="fill_parent">
+
+            <Button
+                android:id="@+id/Button05"
+                style="@style/TextoAsteroides.Botones"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Socorro" >
+            </Button>
         </TableRow>
     </TableLayout>
 
