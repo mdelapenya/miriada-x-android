@@ -12,6 +12,8 @@ public class Juego extends BaseActivity {
 		setContentView(R.layout.juego);
 
 		_vistaJuego = (VistaJuego) findViewById(R.id.VistaJuego);
+
+		_vistaJuego.setPadre(this);
 	}
 
 	@Override
