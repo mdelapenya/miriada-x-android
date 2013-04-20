@@ -16,11 +16,13 @@ import android.widget.Button;
 
 public class Asteroides extends BaseActivity {
 
-	public static AlmacenPuntuaciones almacen = new AlmacenPuntuacionesArray();
+	public static AlmacenPuntuaciones almacen;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		almacen = new AlmacenPuntuacionesPreferencias(this);
 
 		setContentView(R.layout.main);
 
