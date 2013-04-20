@@ -20,7 +20,14 @@ public class AlmacenPuntuacionesPreferencias implements AlmacenPuntuaciones {
 
 		SharedPreferences.Editor editor = preferencias.edit();
 
-		editor.putString("puntuacion", puntos + " " + nombre);
+		for (int n = 9; n >= 1; n--) {
+			editor.putString(
+				"puntuacion-" + n,
+				preferencias.getString("puntuacion-" + (n - 1), ""));
+		}
+
+		editor.putString("puntuacion-0", puntos + " " + nombre);
+
 		editor.commit();
 	}
 
@@ -30,10 +37,12 @@ public class AlmacenPuntuacionesPreferencias implements AlmacenPuntuaciones {
 		SharedPreferences preferencias = context.getSharedPreferences(
 			PREFERENCIAS, Context.MODE_PRIVATE);
 
-		String s = preferencias.getString("puntuacion", "");
+		for (int n = 0; n <= 9; n++) {
+			String puntuacion = preferencias.getString("puntuacion-" + n, "");
 
-		if (s != "") {
-			result.add(s);
+			if (puntuacion != "") {
+				result.add(puntuacion);
+			}
 		}
 
 		return result;
