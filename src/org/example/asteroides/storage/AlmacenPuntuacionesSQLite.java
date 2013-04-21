@@ -43,9 +43,10 @@ public class AlmacenPuntuacionesSQLite extends SQLiteOpenHelper
 
 		SQLiteDatabase db = getReadableDatabase();
 
-		Cursor cursor = db.rawQuery(
-			"SELECT puntos, nombre FROM " +
-				"puntuaciones ORDER BY puntos DESC LIMIT " + cantidad, null);
+		String[] campos = {"puntos", "nombre"};
+		Cursor cursor = db.query(
+			"puntuaciones", campos, null, null, null, null, "puntos DESC",
+			Integer.toString(cantidad));
 
 		while (cursor.moveToNext()) {
 			result.add(cursor.getInt(0) + " " + cursor.getString(1));
