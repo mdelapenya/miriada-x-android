@@ -21,4 +21,12 @@
         android:summary="En cuantos trozos se divide un asteroide"
         android:title="Número de Fragmentos" />
 
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@array/tiposAlmacenamiento"
+        android:entryValues="@array/tiposAlmacenamientoValores"
+        android:key="almacenamiento"
+        android:summary="Se escoge el tipo de almacenamiento principal de la aplicación"
+        android:title="Tipo de Almacenamiento" />
+
 </PreferenceScreen>

@@ -5,8 +5,10 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Notification.Builder;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,7 +24,17 @@ public class Asteroides extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		almacen = new AlmacenPuntuacionesFicheroInterno(this);
+		SharedPreferences sharedPreferences =
+			PreferenceManager.getDefaultSharedPreferences(this);
+
+		String prefStorage = sharedPreferences.getString("almacenamiento", "1");
+
+		if ("0".equals(prefStorage)) {
+			almacen = new AlmacenPuntuacionesPreferencias(this);
+		}
+		else if ("1".equals(prefStorage)) {
+			almacen = new AlmacenPuntuacionesFicheroInterno(this);
+		}
 
 		setContentView(R.layout.main);
 
