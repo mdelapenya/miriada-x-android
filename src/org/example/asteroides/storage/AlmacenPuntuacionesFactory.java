@@ -22,6 +22,9 @@ public class AlmacenPuntuacionesFactory {
 		else if ("4".equals(type)) {
 			return new AlmacenPuntuacionesXML_SAX(context);
 		}
+		else if ("5".equals(type)) {
+			return new AlmacenPuntuacionesSQLite(context);
+		}
 
 		throw new IllegalArgumentException();
 	}

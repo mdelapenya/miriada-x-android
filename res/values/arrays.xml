@@ -6,6 +6,7 @@
         <item>Almacenamiento Externo</item>
         <item>Recurso de la aplicación</item>
         <item>XML - SAX</item>
+        <item>Base de Datos SQLite</item>
     </string-array>
     <string-array name="tiposAlmacenamientoValores">
         <item>0</item>
@@ -13,6 +14,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
     <string-array name="tiposGraficos">
