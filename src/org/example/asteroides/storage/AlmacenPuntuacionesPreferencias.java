@@ -1,4 +1,4 @@
-package org.example.asteroides;
+package org.example.asteroides.storage;
 
 import java.util.Vector;
 
