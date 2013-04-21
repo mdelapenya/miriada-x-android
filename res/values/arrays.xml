@@ -4,11 +4,13 @@
         <item>Preferencias</item>
         <item>Almacenamiento Interno</item>
         <item>Almacenamiento Externo</item>
+        <item>Recurso de la aplicación</item>
     </string-array>
     <string-array name="tiposAlmacenamientoValores">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="tiposGraficos">

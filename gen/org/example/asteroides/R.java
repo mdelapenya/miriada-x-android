@@ -60,7 +60,8 @@ public final class R {
     public static final class raw {
         public static final int mid=0x7f050000;
         public static final int mp3=0x7f050001;
-        public static final int socorro=0x7f050002;
+        public static final int puntuaciones=0x7f050002;
+        public static final int socorro=0x7f050003;
     }
     public static final class string {
         public static final int Acercade=0x7f070002;
