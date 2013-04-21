@@ -22,7 +22,7 @@ public class Asteroides extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		almacen = new AlmacenPuntuacionesPreferencias(this);
+		almacen = new AlmacenPuntuacionesFicheroInterno(this);
 
 		setContentView(R.layout.main);
 
