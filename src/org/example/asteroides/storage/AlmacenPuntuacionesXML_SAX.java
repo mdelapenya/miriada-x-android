@@ -180,6 +180,10 @@ public class AlmacenPuntuacionesXML_SAX implements AlmacenPuntuaciones {
 					String uri, String nombreLocal, String nombreCualif)
 				throws SAXException {
 
+				if (puntuacion == null) {
+					return;
+				}
+
 				if (nombreLocal.equals("puntos")) {
 					puntuacion.puntos = Integer.parseInt(cadena.toString());
 				}
