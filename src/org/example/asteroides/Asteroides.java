@@ -72,8 +72,13 @@ public class Asteroides extends BaseActivity {
 			}
 		});
 
-		startService(
-			new Intent(Asteroides.this, ServicioMusica.class));
+		boolean prefBackgroundMusic = sharedPreferences.getBoolean(
+			"musica", true);
+
+		if (prefBackgroundMusic) {
+			startService(
+				new Intent(Asteroides.this, ServicioMusica.class));
+		}
 	}
 
 	@Override 
