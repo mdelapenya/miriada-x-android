@@ -32,9 +32,10 @@ public class AlmacenPuntuacionesSQLite extends SQLiteOpenHelper
 	public void guardarPuntuacion(int puntos, String nombre, long fecha) {
 		SQLiteDatabase db = getWritableDatabase();
 
-		db.execSQL(
-			"INSERT INTO puntuaciones VALUES ( null, " + puntos + ", '" +
-				nombre + "', " + fecha + ")");
+		String sql = "INSERT INTO puntuaciones VALUES (?,?,?,?)";
+		Object[] bindArgs = new Object[] {null, puntos, nombre, fecha};
+
+		db.execSQL(sql, bindArgs);
 	}
 
 	public Vector<String> listaPuntuaciones(int cantidad) {
