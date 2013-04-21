@@ -13,6 +13,9 @@ public class AlmacenPuntuacionesFactory {
 		else if ("1".equals(type)) {
 			return new AlmacenPuntuacionesFicheroInterno(context);
 		}
+		else if ("2".equals(type)) {
+			return new AlmacenPuntuacionesFicheroExterno(context);
+		}
 
 		throw new IllegalArgumentException();
 	}
