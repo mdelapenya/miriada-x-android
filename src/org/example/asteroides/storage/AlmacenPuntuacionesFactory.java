@@ -25,6 +25,9 @@ public class AlmacenPuntuacionesFactory {
 		else if ("5".equals(type)) {
 			return new AlmacenPuntuacionesSQLite(context);
 		}
+		else if ("6".equals(type)) {
+			return new AlmacenPuntuacionesSocket();
+		}
 
 		throw new IllegalArgumentException();
 	}
